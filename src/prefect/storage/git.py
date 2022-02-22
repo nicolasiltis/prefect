@@ -201,5 +201,5 @@ class Git(Storage):
             return Secret(self.git_clone_url_secret_name).get()  # type: ignore
 
         if self.use_ssh:
-            return f"git@{self.repo_host}:{self.repo}.git"
+            return f"ssh://git@{self.repo_host}:{self.repo}.git"
         return f"https://{self.git_token_secret}@{self.repo_host}/{self.repo}.git"
